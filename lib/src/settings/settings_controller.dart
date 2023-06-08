@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'settings_service.dart';
+import 'package:usa_spending/src/settings/settings_service.dart';
 
 /// A class that many Widgets can interact with to read user settings, update
 /// user settings, or listen to user settings changes.
@@ -8,6 +7,7 @@ import 'settings_service.dart';
 /// Controllers glue Data Services to Flutter Widgets. The SettingsController
 /// uses the SettingsService to store and retrieve user settings.
 class SettingsController with ChangeNotifier {
+  ///SettingsController Constructor
   SettingsController(this._settingsService);
 
   // Make SettingsService a private variable so it is not used directly.
@@ -17,7 +17,7 @@ class SettingsController with ChangeNotifier {
   // also persisting the changes with the SettingsService.
   late ThemeMode _themeMode;
 
-  // Allow Widgets to read the user's preferred ThemeMode.
+  /// Allow Widgets to read the user's preferred ThemeMode.
   ThemeMode get themeMode => _themeMode;
 
   /// Load the user's settings from the SettingsService. It may load from a
