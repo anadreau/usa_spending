@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:usa_spending/src/app.dart';
 import 'package:usa_spending/src/settings/settings_controller.dart';
 import 'package:usa_spending/src/settings/settings_service.dart';
