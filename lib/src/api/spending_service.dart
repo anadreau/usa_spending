@@ -1,6 +1,6 @@
 //TO-DO: #1 Create Api for different https://api.usaspending.gov endpoints. @anadreau
 ///SpendingApi Class
-class StateOverview {
+class StateOverviewService {
   //Using /api/v2/recipient/state/
 }
 

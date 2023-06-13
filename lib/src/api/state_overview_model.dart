@@ -1,13 +1,24 @@
 ///StateOverview class
-class StateOverview {
+class StateOverviewModel {
   ///StateOverview Constructor
-  StateOverview({
+  StateOverviewModel({
     required this.amount,
     required this.code,
     required this.fips,
     required this.name,
     required this.type,
   });
+
+  ///FromJson Constructor
+  factory StateOverviewModel.fromJson(Map<String, dynamic> json) {
+    return StateOverviewModel(
+      amount: json['amount'] as double,
+      code: json['code'] as String,
+      fips: json['fips'] as String,
+      name: json['name'] as String,
+      type: json['type'] as Type,
+    );
+  }
 
   ///Initialize Name [String]
   String name;
