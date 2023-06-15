@@ -27,8 +27,12 @@ class StateOverviewDetails extends StatelessWidget {
             future: ref.read(stateOverviewCreator),
             builder: (BuildContext context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                // const testString =
-                //     '[{"fips":"01","code":"AZ","name":"Arizona","type":"state","amount":420.69},{"fips":"02","code":"AK","name":"Alaska","type":"state","amount":14582683693.39}]';
+//                 const testString = '''
+// [{"fips":"01","code":"AZ","name":"Arizona","type":"state","amount":420.69}
+// ,
+// {"fips":"02","code":"AK","name":"Alaska",
+// "type":"state","amount":14582683693.39}]
+// ''';
                 final snapshotString = snapshot.data;
                 final json = jsonDecode(snapshotString!) as List<dynamic>;
                 final testState = StateOverviewModel.fromJson(

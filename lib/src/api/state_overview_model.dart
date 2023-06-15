@@ -1,6 +1,6 @@
-///StateOverview class
+///StateOverviewModel class
 class StateOverviewModel {
-  ///StateOverview Constructor
+  ///StateOverviewModel Constructor
   StateOverviewModel({
     required this.amount,
     required this.code,

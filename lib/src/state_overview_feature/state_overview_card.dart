@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:usa_spending/src/api/state_overview_model.dart';
 
+///StateOverviewCard Class
 class StateOverviewCard extends StatelessWidget {
+  ///StateOverviewCard Constructor
   const StateOverviewCard({required this.state, super.key});
+
+  ///Initializes state [StateOverviewModel]
   final StateOverviewModel state;
 
   @override
