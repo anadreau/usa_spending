@@ -30,7 +30,10 @@ class SampleItemListView extends StatelessWidget {
               // Navigate to the settings page. If the user leaves and returns
               // to the app after it has been killed while running in the
               // background, the navigation stack is restored.
-              Navigator.restorablePushNamed(context, SettingsView.routeName);
+              Navigator.restorablePushNamed(
+                context,
+                SettingsView.routeName,
+              );
             },
           ),
           IconButton(
@@ -40,7 +43,9 @@ class SampleItemListView extends StatelessWidget {
               // to the app after it has been killed while running in the
               // background, the navigation stack is restored.
               Navigator.restorablePushNamed(
-                  context, StateOverviewDetails.routeName);
+                context,
+                StateOverviewDetails.routeName,
+              );
             },
           ),
         ],

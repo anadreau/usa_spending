@@ -16,7 +16,7 @@ class StateOverviewModel {
       code: json['code'] as String,
       fips: json['fips'] as String,
       name: json['name'] as String,
-      type: json['type'] as Type,
+      type: json['type'] as String,
     );
   }
 
@@ -33,7 +33,7 @@ class StateOverviewModel {
   double amount;
 
   ///Initialize type [Type]
-  Type type;
+  String type;
 }
 
 ///Enum for State [Type]
