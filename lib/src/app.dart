@@ -6,6 +6,7 @@ import 'package:usa_spending/src/sample_feature/sample_item_details_view.dart';
 import 'package:usa_spending/src/sample_feature/sample_item_list_view.dart';
 import 'package:usa_spending/src/settings/settings_controller.dart';
 import 'package:usa_spending/src/settings/settings_view.dart';
+import 'package:usa_spending/src/state_overview_feature/state_overivew_details.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -74,6 +75,8 @@ class MyApp extends StatelessWidget {
                   case SampleItemDetailsView.routeName:
                     return const SampleItemDetailsView();
                   case SampleItemListView.routeName:
+                  case StateOverviewDetails.routeName:
+                    return const StateOverviewDetails();
                   default:
                     return const SampleItemListView();
                 }

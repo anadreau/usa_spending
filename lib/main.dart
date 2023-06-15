@@ -1,3 +1,4 @@
+import 'package:creator/creator.dart';
 import 'package:flutter/material.dart';
 import 'package:usa_spending/src/app.dart';
 import 'package:usa_spending/src/settings/settings_controller.dart';
@@ -15,5 +16,9 @@ void main() async {
   // Run the app and pass in the SettingsController. The app listens to the
   // SettingsController for changes, then passes it further down to the
   // SettingsView.
-  runApp(MyApp(settingsController: settingsController));
+  runApp(
+    CreatorGraph(
+      child: MyApp(settingsController: settingsController),
+    ),
+  );
 }
