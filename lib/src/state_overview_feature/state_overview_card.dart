@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:usa_spending/src/api/state_overview_model.dart';
 
 ///StateOverviewCard Class
@@ -12,6 +13,12 @@ class StateOverviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formatCurrency = NumberFormat.currency(
+      locale: 'en_US',
+      decimalDigits: 2,
+      symbol: r'$ ',
+    );
+    final amount = formatCurrency.format(state.amount);
     //TO-DO: #2 Add state image asset to each card. @anadreau
     return Container(
       height: 200,
@@ -34,7 +41,7 @@ class StateOverviewCard extends StatelessWidget {
                     children: [
                       //TO-DO: #3 Format dollar amount to include commas
                       // for readability. @anadreau
-                      Text('\$${state.amount}'),
+                      Text(amount),
                     ],
                   )
                 ],
