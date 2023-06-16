@@ -19,7 +19,6 @@ class StateOverviewCard extends StatelessWidget {
       symbol: r'$ ',
     );
     final amount = formatCurrency.format(state.amount);
-    //TO-DO: #2 Add state image asset to each card. @anadreau
     return Container(
       height: 200,
       width: 300,
