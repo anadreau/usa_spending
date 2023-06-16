@@ -1,8 +1,6 @@
 import 'package:creator/creator.dart';
 import 'package:http/http.dart' as http;
 
-//TO-DO: #1 Create Api for different https://api.usaspending.gov endpoints. @anadreau
-
 ///Creator for getStateOverview
 Creator<Future<String>> stateOverviewCreator =
     Creator((ref) => StateOverviewService().getStateOverview());
@@ -10,7 +8,7 @@ Creator<Future<String>> stateOverviewCreator =
 //TO-DO: #4 Create Isar cache
 //so not pulling from API on every refresh. @anadreau
 
-///SpendingApi Class
+///SpendingApi Service Class
 class StateOverviewService {
   ///Using /api/v2/recipient/state/ get overview of States
   Future<String> getStateOverview() async {
@@ -18,6 +16,8 @@ class StateOverviewService {
     final response = await http.get(url);
     return response.body;
   }
+
+  //TO-DO: #8 add future API calls here such as search. @anadreau
 }
 
 //TO-DO: #5 Implement Status in API call for better error handling. @anadreau
