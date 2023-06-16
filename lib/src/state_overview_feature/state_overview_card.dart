@@ -20,11 +20,11 @@ class StateOverviewCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(45),
       ),
       child: Card(
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Row(
+            children: [
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('${state.type}: ${state.name}, ${state.code}'),
@@ -39,11 +39,14 @@ class StateOverviewCard extends StatelessWidget {
                   )
                 ],
               ),
-            ),
-            Expanded(
-              child: SvgPicture.asset('assets/states/${state.code}.svg'),
-            ),
-          ],
+              const SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                child: SvgPicture.asset('assets/states/${state.code}.svg'),
+              ),
+            ],
+          ),
         ),
       ),
     );
