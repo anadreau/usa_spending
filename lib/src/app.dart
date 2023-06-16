@@ -69,6 +69,7 @@ class MyApp extends StatelessWidget {
             return MaterialPageRoute<void>(
               settings: routeSettings,
               builder: (BuildContext context) {
+                //TO-DO: #6 Replace Sample routes. @anadreau
                 switch (routeSettings.name) {
                   case StateOverviewDetails.routeName:
                     return const StateOverviewDetails();

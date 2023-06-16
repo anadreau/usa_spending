@@ -35,20 +35,3 @@ class StateOverviewModel {
   ///Initialize type [Type]
   String type;
 }
-
-///Enum for State [Type]
-enum Type {
-  ///State
-  state(name: 'State'),
-
-  ///Territory
-  territory(name: 'Territory'),
-
-  ///District
-  district(name: 'District');
-
-  const Type({required this.name});
-
-  ///Initialize Name
-  final String name;
-}

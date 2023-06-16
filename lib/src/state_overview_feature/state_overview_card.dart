@@ -26,6 +26,8 @@ class StateOverviewCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                //TO-DO: #3 Format dollar amount to include commas
+                // for readability. @anadreau
                 Text('\$${state.amount}'),
               ],
             )

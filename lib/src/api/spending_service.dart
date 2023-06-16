@@ -7,6 +7,9 @@ import 'package:http/http.dart' as http;
 Creator<Future<String>> stateOverviewCreator =
     Creator((ref) => StateOverviewService().getStateOverview());
 
+//TO-DO: #4 Create Isar cache
+//so not pulling from API on every refresh. @anadreau
+
 ///SpendingApi Class
 class StateOverviewService {
   ///Using /api/v2/recipient/state/ get overview of States
@@ -17,6 +20,7 @@ class StateOverviewService {
   }
 }
 
+//TO-DO: #5 Implement Status in API call for better error handling. @anadreau
 ///enum for api request status
 enum Status {
   ///Successful status
