@@ -36,7 +36,7 @@ class StateOverviewDetails extends StatelessWidget {
                 final snapshotString = snapshot.data;
                 final json = jsonDecode(snapshotString!) as List<dynamic>;
                 final testState = StateOverviewModel.fromJson(
-                  json[3] as Map<String, dynamic>,
+                  json[4] as Map<String, dynamic>,
                 );
                 log(testState.toString());
                 return StateOverviewCard(
