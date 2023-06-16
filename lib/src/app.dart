@@ -6,6 +6,7 @@ import 'package:usa_spending/src/sample_feature/sample_item_details_view.dart';
 import 'package:usa_spending/src/sample_feature/sample_item_list_view.dart';
 import 'package:usa_spending/src/settings/settings_controller.dart';
 import 'package:usa_spending/src/settings/settings_view.dart';
+import 'package:usa_spending/src/state_overview_feature/state_overivew_details.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -68,7 +69,10 @@ class MyApp extends StatelessWidget {
             return MaterialPageRoute<void>(
               settings: routeSettings,
               builder: (BuildContext context) {
+                //TO-DO: #6 Replace Sample routes. @anadreau
                 switch (routeSettings.name) {
+                  case StateOverviewDetails.routeName:
+                    return const StateOverviewDetails();
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
                   case SampleItemDetailsView.routeName:

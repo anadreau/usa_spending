@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:usa_spending/src/sample_feature/sample_item.dart';
 import 'package:usa_spending/src/sample_feature/sample_item_details_view.dart';
 import 'package:usa_spending/src/settings/settings_view.dart';
+import 'package:usa_spending/src/state_overview_feature/state_overivew_details.dart';
 
 /// Displays a list of SampleItems.
 class SampleItemListView extends StatelessWidget {
@@ -29,7 +30,22 @@ class SampleItemListView extends StatelessWidget {
               // Navigate to the settings page. If the user leaves and returns
               // to the app after it has been killed while running in the
               // background, the navigation stack is restored.
-              Navigator.restorablePushNamed(context, SettingsView.routeName);
+              Navigator.restorablePushNamed(
+                context,
+                SettingsView.routeName,
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.home),
+            onPressed: () {
+              // Navigate to the settings page. If the user leaves and returns
+              // to the app after it has been killed while running in the
+              // background, the navigation stack is restored.
+              Navigator.restorablePushNamed(
+                context,
+                StateOverviewDetails.routeName,
+              );
             },
           ),
         ],
