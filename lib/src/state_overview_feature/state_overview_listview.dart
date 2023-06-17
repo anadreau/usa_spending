@@ -1,5 +1,3 @@
-//TO-DO: #7 Implement listview for all States from api. @anadreau
-
 import 'package:flutter/material.dart';
 import 'package:usa_spending/src/api/state_overview_model.dart';
 import 'package:usa_spending/src/state_overview_feature/state_overview_card.dart';
