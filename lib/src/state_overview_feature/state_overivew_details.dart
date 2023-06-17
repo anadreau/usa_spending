@@ -4,8 +4,7 @@ import 'dart:developer';
 import 'package:creator/creator.dart';
 import 'package:flutter/material.dart';
 import 'package:usa_spending/src/api/spending_service.dart';
-import 'package:usa_spending/src/api/state_overview_model.dart';
-import 'package:usa_spending/src/state_overview_feature/state_overview_card.dart';
+import 'package:usa_spending/src/state_overview_feature/state_overview_listview.dart';
 
 /// Displays detailed information about a SampleItem.
 class StateOverviewDetails extends StatelessWidget {
@@ -35,12 +34,10 @@ class StateOverviewDetails extends StatelessWidget {
 // ''';
                 final snapshotString = snapshot.data;
                 final json = jsonDecode(snapshotString!) as List<dynamic>;
-                final testState = StateOverviewModel.fromJson(
-                  json[4] as Map<String, dynamic>,
-                );
-                log(testState.toString());
-                return StateOverviewCard(
-                  state: testState,
+
+                log(json.toString());
+                return StateOverviewListView(
+                  statesList: json,
                 );
                 // return SingleChildScrollView(
                 //   child: Text(snapshot.data.toString()),

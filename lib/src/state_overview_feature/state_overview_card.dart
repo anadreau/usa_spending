@@ -21,7 +21,7 @@ class StateOverviewCard extends StatelessWidget {
     final amount = formatCurrency.format(state.amount);
     return Container(
       height: 200,
-      width: 300,
+      width: 200,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(45),
       ),
