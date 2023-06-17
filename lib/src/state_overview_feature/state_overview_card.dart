@@ -46,6 +46,7 @@ class StateOverviewCard extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
+              //TO-DO: #13 look into adding svg for territories. @anadreau
               Expanded(
                 child: SvgPicture.asset('assets/states/${state.code}.svg'),
               ),
