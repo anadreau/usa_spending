@@ -1,4 +1,7 @@
+import 'package:isar/isar.dart';
+
 ///StateOverviewModel class
+@collection
 class StateOverviewModel {
   ///StateOverviewModel Constructor
   StateOverviewModel({
@@ -24,6 +27,7 @@ class StateOverviewModel {
   String name;
 
   ///Initialize code [String]
+  @Index(type: IndexType.value)
   String code;
 
   ///Initialize fips [String]
