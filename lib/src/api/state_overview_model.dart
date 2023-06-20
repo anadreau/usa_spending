@@ -1,5 +1,7 @@
 import 'package:isar/isar.dart';
 
+part 'state_overview_model.g.dart';
+
 ///StateOverviewModel class
 @collection
 class StateOverviewModel {
@@ -38,4 +40,7 @@ class StateOverviewModel {
 
   ///Initialize type [Type]
   String type;
+
+  ///Id for Isar
+  Id id = Isar.autoIncrement;
 }
