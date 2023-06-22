@@ -1,4 +1,9 @@
+import 'package:isar/isar.dart';
+
+part 'state_overview_model.g.dart';
+
 ///StateOverviewModel class
+@collection
 class StateOverviewModel {
   ///StateOverviewModel Constructor
   StateOverviewModel({
@@ -24,6 +29,7 @@ class StateOverviewModel {
   String name;
 
   ///Initialize code [String]
+  @Index(type: IndexType.value)
   String code;
 
   ///Initialize fips [String]
@@ -34,4 +40,7 @@ class StateOverviewModel {
 
   ///Initialize type [Type]
   String type;
+
+  ///Id for Isar
+  Id id = Isar.autoIncrement;
 }
