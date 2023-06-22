@@ -1,9 +1,6 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:creator/creator.dart';
 import 'package:flutter/material.dart';
-import 'package:usa_spending/src/api/spending_service.dart';
+import 'package:usa_spending/src/cache/isar_cache.dart';
 import 'package:usa_spending/src/state_overview_feature/state_overview_listview.dart';
 
 /// Displays detailed information about a SampleItem.
@@ -23,7 +20,7 @@ class StateOverviewDetails extends StatelessWidget {
       body: Center(
         child: Watcher((context, ref, child) {
           return FutureBuilder(
-            future: ref.read(stateOverviewCreator),
+            future: ref.read(readCacheCreator),
             builder: (BuildContext context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
 //                 const testString = '''
@@ -32,12 +29,10 @@ class StateOverviewDetails extends StatelessWidget {
 // {"fips":"02","code":"AK","name":"Alaska",
 // "type":"state","amount":14582683693.39}]
 // ''';
-                final snapshotString = snapshot.data;
-                final json = jsonDecode(snapshotString!) as List<dynamic>;
+                final stateOverviewList = snapshot.data;
 
-                log(json.toString());
                 return StateOverviewListView(
-                  statesList: json,
+                  statesList: stateOverviewList!,
                 );
                 // return SingleChildScrollView(
                 //   child: Text(snapshot.data.toString()),

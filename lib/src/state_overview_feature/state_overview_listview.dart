@@ -8,7 +8,7 @@ class StateOverviewListView extends StatelessWidget {
   const StateOverviewListView({required this.statesList, super.key});
 
   ///Initialize List of States
-  final List<dynamic> statesList;
+  final List<StateOverviewModel> statesList;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +19,7 @@ class StateOverviewListView extends StatelessWidget {
         itemCount: statesList.length,
         restorationId: 'stateOverviewListView',
         itemBuilder: (context, index) {
-          final state = StateOverviewModel.fromJson(
-            statesList[index] as Map<String, dynamic>,
-          );
-          return StateOverviewCard(state: state);
+          return StateOverviewCard(state: statesList[index]);
         },
       ),
     );

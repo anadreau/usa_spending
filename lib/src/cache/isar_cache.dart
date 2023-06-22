@@ -38,6 +38,10 @@ Creator<Future<void>> addToCacheCreator = Creator((ref) async {
 Creator<Future<List<StateOverviewModel>>> readCacheCreator =
     Creator((ref) async {
   final isar = await IsarCache().cache();
+  final cacheLength = await isar.stateOverviewModels.count();
+  if (cacheLength == 0) {
+    await ref.read(addToCacheCreator);
+  }
   final data = await isar.stateOverviewModels.where().findAll();
   return data;
 });
