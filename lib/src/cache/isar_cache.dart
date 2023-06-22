@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:js_interop';
 
 import 'package:creator/creator.dart';
 import 'package:isar/isar.dart';
@@ -25,11 +24,8 @@ Creator<Future<Isar>> cacheCreator = Creator((ref) async {
 
 ///add data to Isar cache from web
 Creator<Future<void>> addToCacheCreator = Creator((ref) async {
-  var isar = Isar.getInstance('StateOverviewCache');
-  if (isar.isNull) {
-    isar = await ref.read(cacheCreator);
-  }
-  //
+  final isar = Isar.getInstance('StateOverviewCache');
+
   final rawData = await ref.watch(stateOverviewCreator);
   final jsonList = jsonDecode(rawData) as List<dynamic>;
   final modelList = <StateOverviewModel>[];
@@ -39,18 +35,16 @@ Creator<Future<void>> addToCacheCreator = Creator((ref) async {
     modelList.add(convertedItem);
   }
   await isar!.writeTxn(() async {
-    await isar?.stateOverviewModels.putAll(modelList);
+    await isar.stateOverviewModels.putAll(modelList);
   });
 });
 
 ///read data from Isar cache
 Creator<Future<List<StateOverviewModel>>> readCacheCreator =
     Creator((ref) async {
-  var isar = Isar.getInstance('StateOverviewCache');
-  if (isar.isNull) {
-    isar = await ref.read(cacheCreator);
-  }
-  final cacheLength = await isar!.stateOverviewModels.count();
+  final isar = await ref.read(cacheCreator);
+
+  final cacheLength = await isar.stateOverviewModels.count();
 
   if (cacheLength == 0) {
     await ref.read(addToCacheCreator);
