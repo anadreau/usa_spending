@@ -16,20 +16,28 @@ class IsarCache {
       directory: dir.path,
     );
   }
-
-  ///add data to Isar cache from web
-  Creator<Future<void>> addToCacheCreator = Creator((ref) async {
-    final isar = await IsarCache().cache();
-    final rawData = await ref.watch(stateOverviewCreator);
-    final jsonList = jsonDecode(rawData) as List<dynamic>;
-    final modelList = <StateOverviewModel>[];
-    for (final dynamic item in jsonList) {
-      final convertedItem =
-          StateOverviewModel.fromJson(item as Map<String, dynamic>);
-      modelList.add(convertedItem);
-    }
-    await isar.writeTxn(() async {
-      await isar.stateOverviewModels.putAll(modelList);
-    });
-  });
 }
+
+///add data to Isar cache from web
+Creator<Future<void>> addToCacheCreator = Creator((ref) async {
+  final isar = await IsarCache().cache();
+  final rawData = await ref.watch(stateOverviewCreator);
+  final jsonList = jsonDecode(rawData) as List<dynamic>;
+  final modelList = <StateOverviewModel>[];
+  for (final dynamic item in jsonList) {
+    final convertedItem =
+        StateOverviewModel.fromJson(item as Map<String, dynamic>);
+    modelList.add(convertedItem);
+  }
+  await isar.writeTxn(() async {
+    await isar.stateOverviewModels.putAll(modelList);
+  });
+});
+
+///read data from Isar cache
+Creator<Future<List<StateOverviewModel>>> readCacheCreator =
+    Creator((ref) async {
+  final isar = await IsarCache().cache();
+  final data = await isar.stateOverviewModels.where().findAll();
+  return data;
+});
